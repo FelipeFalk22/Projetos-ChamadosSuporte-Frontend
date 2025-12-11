@@ -1,70 +1,110 @@
-# Getting Started with Create React App
+# README - Front-End React
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Visão Geral
 
-## Available Scripts
+Este é o repositório do front-end da aplicação, desenvolvido em **React** como **Single Page Application (SPA)**. O front-end consome a API do back-end via **Axios** e gerencia autenticação com **JWT** armazenado em **localStorage**.
 
-In the project directory, you can run:
+## Tecnologias Utilizadas
 
-### `npm start`
+* React 18+
+* Axios
+* React Router DOM
+* CSS customizado
+* localStorage para gerenciamento de estado simples (token JWT)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Estrutura de Pastas
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+```
+/src
+  /components  # Componentes reutilizáveis (botões, cards, formulários)
+  /pages       # Páginas principais (Login, Cadastro, Usuários, Chamados)
+  /services    # Configuração do Axios e chamadas API
+  /App.css     # Estilos globais
+  /App.jsx     # Componente principal
+```
 
-### `npm test`
+## Funcionalidades
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+1. **Autenticação**
 
-### `npm run build`
+   * Tela de login e cadastro.
+   * Armazenamento do token JWT no localStorage.
+   * Redirecionamento para área autenticada.
+   * Logout que limpa o token.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+2. **Gerenciamento de Usuários (apenas admin)**
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+   * Listagem de usuários.
+   * Criação de novos usuários.
+   * Edição de usuários existentes.
+   * Exclusão de usuários com confirmação.
+   * Mensagens de sucesso/erro.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+3. **Chamados de Suporte**
 
-### `npm run eject`
+   * Listagem de chamados abertos.
+   * Criação, edição e exclusão de chamados.
+   * Mensagens de feedback claras.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+4. **Tratamento de erros**
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+   * Token inválido ou expirado redireciona para login.
+   * Campos obrigatórios não preenchidos exibem mensagens.
+   * Erros de comunicação com o servidor são exibidos ao usuário.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+5. **Layout e UX**
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+   * Responsivo para desktop e mobile.
+   * Navegação clara entre páginas.
+   * Padrão visual consistente (cores, botões, tipografia).
 
-## Learn More
+## Como Rodar Localmente
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+1. Clone o repositório:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+```bash
+git clone <URL_DO_REPOSITORIO_FRONT>
+```
 
-### Code Splitting
+2. Entre na pasta do projeto:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+```bash
+cd nome-do-projeto-front
+```
 
-### Analyzing the Bundle Size
+3. Instale as dependências:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+```bash
+npm install
+```
 
-### Making a Progressive Web App
+4. Configure a URL da API no arquivo `/services/api.js`.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+5. Rode a aplicação:
 
-### Advanced Configuration
+```bash
+npm start
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+6. Acesse via navegador em `http://localhost:3000`.
 
-### Deployment
+## Deploy
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+O front-end pode ser publicado em serviços como **Vercel** ou **Netlify**.
 
-### `npm run build` fails to minify
+* Exemplo de deploy no Vercel:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+```bash
+vercel deploy
+```
+
+* Certifique-se de que a URL do front-end esteja apontando para a API em produção.
+
+## Observações
+
+* O front-end depende de um back-end com rotas de autenticação e CRUD funcionando.
+* Para testes locais, garanta que o back-end esteja rodando e acessível.
+
+## Contato
+
+* Desenvolvido por Felipe Barcelos Rafaeli Falk
